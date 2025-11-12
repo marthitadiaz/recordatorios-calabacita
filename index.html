@@ -18,6 +18,11 @@
 
   <!-- 🌸 Manifest que permite instalar la app -->
   <link rel="manifest" href="manifest.json">
+
+  <!-- 📅 flatpickr (CDN) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  
 </head>
     
   <body>
@@ -34,7 +39,6 @@
 
   <div class="bubble">Hoy me toca mi vacuna 😖</div>
 </div>
-    <script  src="./script.js"></script>
 
     <!-- BOTÓN para abrir el modal de calendario -->
 <button id="openCalendarBtn" class="k-btn">📅 Agregar recordatorio</button>
@@ -63,10 +67,9 @@
   <h4>Mis recordatorios</h4>
   <ul id="remindersUl"></ul>
 </div>
-
-<!-- flatpickr CDN (poner en <head> preferible o justo antes de </body>) -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
+<!-- 🧠 Tu script principal -->
+<script  src="./script.js"></script>
 
   </body>
   
