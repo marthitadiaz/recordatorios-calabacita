@@ -1,203 +1,75 @@
-/* 🌼 Fondo general */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Fondo y estructura general */
 body {
-  background-color: #fff8dc; /* amarillo pastel suave */
-  font-family: "Comic Sans MS", "Poppins", sans-serif;
+  background-color: #fff9d6; /* Amarillo pastel tipo Animal Crossing */
+  font-family: 'Poppins', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   height: 100vh;
   margin: 0;
-  overflow-x: hidden;
-  color: #5a3e1b;
+  overflow: hidden;
 }
 
-/* 🧡 Widget contenedor */
-.widget {
-  position: relative;
-  margin-top: 50px;
+/* Encabezado */
+h1 {
+  color: #4c3f2d;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 20px;
   text-align: center;
 }
 
-/* 🐶 Imagen chibi / chihuahua */
-.chihuahua img {
-  width: 160px;
+/* Contenedor principal */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Imagen del chibi */
+.chibi {
+  width: 250px;
   height: auto;
-  object-fit: contain;
+  image-rendering: auto;
   border: none;
   background: transparent;
-  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
 }
 
-/* 💬 Burbuja de mensaje kawaii */
-.bubble {
+/* Burbuja de texto */
+.burbuja {
+  background-color: #ffffffb7;
+  color: #4c3f2d;
+  border-radius: 25px;
+  padding: 12px 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  font-size: 16px;
+  max-width: 280px;
+  text-align: center;
+  animation: flotar 3s ease-in-out infinite;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(5px);
+}
+
+/* Animación flotante */
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Corazones animados */
+.corazon {
   position: absolute;
-  bottom: 140px; /* más arriba del chibi */
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #fff;
-  border: 2px solid #fcd34d;
-  border-radius: 20px;
-  padding: 10px 16px;
-  font-size: 14px;
-  max-width: 220px;
-  box-shadow: 3px 3px 0 #facc15;
-  animation: pop 0.3s ease-in-out;
-  opacity: 1;
-  transition: opacity 0.5s ease;
-}
-
-/* Animación suave al aparecer */
-@keyframes pop {
-  0% { transform: translateX(-50%) scale(0.8); opacity: 0; }
-  100% { transform: translateX(-50%) scale(1); opacity: 1; }
-}
-
-/* Efecto de "ocultar" y reaparecer cuando cambia mensaje */
-.bubble.fade {
-  opacity: 0;
-}
-
-@keyframes pop {
-  0% { transform: translateX(-50%) scale(0.9); opacity: 0; }
-  100% { transform: translateX(-50%) scale(1); opacity: 1; }
-}
-
-/* 💕 Corazones flotando */
-.hearts {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 0;
-  height: 0;
+  color: #ff7ba9;
+  font-size: 22px;
+  animation: subir 3s linear forwards;
   pointer-events: none;
 }
 
-.heart {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: #ff8fab;
-  transform: rotate(45deg);
-  animation: float 3s ease-in-out forwards;
-}
-
-.heart::before,
-.heart::after {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: #ff8fab;
-  border-radius: 50%;
-}
-
-.heart::before {
-  top: -10px;
-  left: 0;
-}
-.heart::after {
-  left: -10px;
-  top: 0;
-}
-
-@keyframes float {
-  0% {
-    opacity: 1;
-    transform: translateY(0) rotate(45deg);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-150px) rotate(45deg);
-  }
-}
-
-/* 📅 Botones */
-.k-btn {
-  background-color: #fcd34d;
-  border: none;
-  border-radius: 20px;
-  padding: 10px 16px;
-  margin-top: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  box-shadow: 2px 3px 0 #facc15;
-}
-
-.k-btn:hover {
-  transform: translateY(-2px);
-}
-
-/* 🌸 Modal kawaii */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(255, 248, 220, 0.95);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 50;
-}
-
-.hidden {
-  display: none;
-}
-
-.modal-card {
-  background: #fff;
-  border: 2px solid #fcd34d;
-  border-radius: 20px;
-  padding: 20px;
-  width: 280px;
-  box-shadow: 4px 4px 0 #facc15;
-}
-
-.close-btn {
-  background: none;
-  border: none;
-  font-size: 18px;
-  float: right;
-  cursor: pointer;
-}
-
-.modal-card input {
-  width: 100%;
-  border: 2px solid #fcd34d;
-  border-radius: 10px;
-  padding: 8px;
-  margin-bottom: 10px;
-}
-
-/* 📝 Lista de recordatorios */
-.reminder-list {
-  margin-top: 20px;
-  width: 260px;
-  background: #fff;
-  border-radius: 20px;
-  padding: 10px 15px;
-  border: 2px solid #fcd34d;
-  box-shadow: 3px 3px 0 #facc15;
-}
-
-.reminder-list h4 {
-  margin: 0 0 10px;
-  font-size: 16px;
-}
-
-.reminder-list li {
-  list-style: none;
-  margin-bottom: 10px;
-  font-size: 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.reminder-remove {
-  background: #ffb3c6;
-  border: none;
-  border-radius: 10px;
-  padding: 4px 8px;
-  cursor: pointer;
+@keyframes subir {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-80px) scale(1.5); opacity: 0; }
 }
