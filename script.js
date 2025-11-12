@@ -3,28 +3,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const heartsContainer = document.querySelector('.hearts');
   const bubble = document.querySelector('.bubble');
 
-  // 🌼 Tus mensajes originales
+  // Lista de mensajes (puedes agregar más)
   const mensajes = [
     "Hoy me toca mi vacuna 😖",
-    "¡No olvidés comprarme comida! 🍖",
-    "Hora de jugar conmigo 💓",
-    "Acordate de darme agua 💧",
+    "¡No olvides comprarme comida! 🍖",
+    "Hora de jugar conmigo ❤️",
+    "Acuérdate de darme agua 💧",
     "Vamos a pasear hoy 🌳"
   ];
 
   let indiceMensaje = 0;
 
-  // 💕 Clic en la mascota → cambia mensaje y lanza corazones
+  // Click en la mascota → cambia mensaje y genera corazones
   chihuahua.addEventListener('click', () => {
     // Cambiar mensaje
     bubble.textContent = mensajes[indiceMensaje];
     indiceMensaje = (indiceMensaje + 1) % mensajes.length;
 
-    // Crear corazón flotante
+    // Crear corazón flotante lateral
     const heart = document.createElement('div');
     heart.classList.add('heart');
-    heart.textContent = '💖';
-    heart.style.left = (Math.random() * 200 - 100) + 'px';
+    heart.style.left = (Math.random() * 200 - 100) + 'px'; // posición aleatoria
     heartsContainer.appendChild(heart);
 
     setTimeout(() => heartsContainer.removeChild(heart), 3000);
