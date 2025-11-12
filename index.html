@@ -36,6 +36,38 @@
 </div>
     <script  src="./script.js"></script>
 
+    <!-- BOTÓN para abrir el modal de calendario -->
+<button id="openCalendarBtn" class="k-btn">📅 Agregar recordatorio</button>
+
+<!-- Modal kawaii -->
+<div id="calendarModal" class="modal hidden">
+  <div class="modal-card">
+    <button id="closeModal" class="close-btn">✕</button>
+    <h3>Agregar recordatorio</h3>
+
+    <label for="reminderText">Mensaje</label>
+    <input id="reminderText" type="text" placeholder="Ej: Hoy me toca mi vacuna 😖">
+
+    <label for="reminderDatetime">Fecha y hora</label>
+    <input id="reminderDatetime" type="text" placeholder="Selecciona fecha y hora">
+
+    <div class="modal-actions">
+      <button id="saveReminder" class="k-btn primary">Guardar</button>
+      <button id="cancelReminder" class="k-btn">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Lista de recordatorios -->
+<div id="reminderList" class="reminder-list">
+  <h4>Mis recordatorios</h4>
+  <ul id="remindersUl"></ul>
+</div>
+
+<!-- flatpickr CDN (poner en <head> preferible o justo antes de </body>) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
   </body>
   
 </html>
